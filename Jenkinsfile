@@ -16,7 +16,7 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-                bat 'docker build -t ians3/github-demo .'
+                bat 'docker build -t ianS3/github-demo .'
             }
         }
 
@@ -24,7 +24,7 @@ pipeline {
             steps {
                 withCredentials([usernamePassword(credentialsId: 'docker-hub-credentials', passwordVariable: 'DOCKER_PASSWORD', usernameVariable: 'DOCKER_USERNAME')]) {
                     bat 'docker login -u %DOCKER_USERNAME% -p %DOCKER_PASSWORD%'
-                    bat 'docker push ians3/github-demo'
+                    bat 'docker push ianS3/github-demo'
                 }
             }
         }
